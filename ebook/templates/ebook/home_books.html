@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <section class="genre">
+      <div class="container">
+        <div class="top_title">
+          <h3>Subject books</h3>
+        </div>
+        <div class="genre_items">
+          <div class="genre_top-row">
+              {% for item in genre %}
+
+                <a href="{{ item.get_absolute_url }}" class="item">
+                    <i class='bx bxs-book-open'></i>
+
+                    <h4>{{ item.name }}</h4>
+                </a>
+              {% endfor %}
+            <a href="{% url 'genre_list' %}" class="item">
+              <i class="bx bx-list-ul"></i>
+              <h4>Все категории</h4>
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="newbooks">
+        <div class="container">
+            <div class="top_title">
+                <h3>New books</h3>
+            </div>
+            <div class="newbooks_items">
+                {% for item in book %}
+                <a href="{{ item.get_absolute_url }}" class="newbook_item">
+                    <img class="big_book" src="{{ item.poster.url }}" alt="">
+                    <div class="newbook_item-overlay">
+                        <h5>{{ item.title }}</h5>
+                        <h6>
+                          {% for author in item.authors.all %}
+                                {{ author.name }}<br>
+                            {% endfor %}
+                        </h6>
+                        <div class="newbook_item-rateing">
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star-half'></i>
+                        </div>
+                        <button>View</button>
+                        <button>Download now</button>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    {% if page_obj.has_other_pages %}
+        {% include 'inc/pagination.html' %}
+    {% endif %}
+{% endblock %}
+

@@ -1,0 +1,55 @@
+<section class="page_numbers">
+    <div class="container">
+        <div class="page_items">
+
+
+
+            <div class="page_back">
+            {% if page_obj.has_previous %}
+                <a href="?{{ q }}page={{ page_obj.previous_page_number }}">
+                    <i class="fas fa-chevron-left"></i>
+                </a>
+                {% if page_obj.number|add:'-3' > 1 %}
+                        <a href="?{{ q }}page=1">1</a>
+                {% endif %}
+                {% if page_obj.number|add:'-3' >= 3 %}
+                    <a href="?{{ q }}page={{ page_obj.previous_page_number|add:'-3' }}">
+                        <span>• • •</span>
+                    </a>
+                {% endif %}
+            {% endif %}
+            </div>
+
+
+
+            <div class="page_number">
+            {% for i in paginator.page_range %}
+                {% if page_obj.number == i %}
+                            <a class="active" href="#">{{ i }}</a>
+                    {% elif i > page_obj.number|add:'-4' and i < page_obj.number|add:'4' %}
+                            <a href="?{{ q }}page={{ i }}">{{ i }}</a>
+                    {% endif %}
+            {% endfor %}
+            </div>
+
+
+            <div class="page_forward">
+            {% if page_obj.has_next %}
+                {% if page_obj.number|add:'4' < page_obj.paginator.num_pages %}
+                            <a href="?{{ q }}page={{ page_obj.next_page_number|add:'3' }}">
+                        <span class="pagination__link">• • •</span>
+                        </a>
+                {% endif %}
+                {% if page_obj.number|add:'3' < page_obj.paginator.num_pages %}
+                            <a href="?{{ q }}page={{ page_obj.paginator.num_pages }}">
+                                {{ page_obj.paginator.num_pages }}
+                            </a>
+                {% endif %}
+                <a href="?{{ q }}page={{ page_obj.next_page_number }}">
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+</section>

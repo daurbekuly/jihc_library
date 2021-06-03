@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <section class="newbooks">
+        <div class="container">
+
+            <div class="newbooks_items">
+                {% for author in authors %}
+                <a href="{{ author.get_absolute_url }}" class="newbook_item">
+                    <img class="big_book" src="{{ author.image.url }}" alt="">
+                    <div class="newbook_item-overlay">
+                        <h5>{{ author.name }}</h5>
+
+                        <button>View</button>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

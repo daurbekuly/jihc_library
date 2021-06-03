@@ -1,0 +1,60 @@
+:root{
+--skyblue: #4a148c;
+--blue: #ab47bc;
+--yellow: #18ffff;
+
+}
+
+#header{
+background: var(--skyblue);
+color: var(--yellow);
+
+}
+#branding h1, #branding h1 a:link, #branding h1 a:visited{
+color: var(--yellow);
+}
+
+#header a:link:hover, #header a:visited:hover{
+color: var(--blue);
+}
+
+div.breadcrumbs{
+background: var(--blue);
+color: #fff;
+}
+
+element.style {
+}
+#nav-sidebar .module th, #nav-sidebar .module caption {
+    padding-left: 16px;
+}
+.module caption{
+background-color: var(--skyblue);
+}
+
+#nav-sidebar .current-app .section:link, #nav-sidebar .current-app .section:visited{
+color: var(--yellow);
+}
+
+a:link, a:visited{
+color: var(--skyblue);
+}
+
+#nav-sidebar .current-model{
+background: var(--yellow);
+}
+
+
+.button, input[type=submit], input[type=button], .submit-row input, a.button{
+background: var(--blue);
+}
+
+.button.default, input[type=submit].default, .submit-row input.default{
+background: var(--skyblue);
+}
+
+
+.button:hover, input[type=submit]:hover, input[type=button]:hover, .submit-row input:hover, a.button:hover, .button.default:hover, input[type=submit].default:hover, .submit-row input.default:hover{
+background: var(--yellow);
+color: var(--skyblue);
+}

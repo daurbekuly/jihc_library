@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}{{ ebook.title }}{% endblock %}
+
+{% block body %}<body class="green">{% endblock %}
+
+{% block header %}
+    {% include 'inc/_header_green.html' %}
+    {% endblock %}
+
+{% block nav %}
+      {% include 'inc/_sidebar_white.html' %}
+{% endblock %}
+
+
+{% block content %}
+    <section class="viewbook">
+        <div class="container">
+            <div class="viewbook_link">
+                <a href="/">Authors</a>
+                <span>/</span>
+                <a href="#">{{ author.name }}</a>
+            </div>
+            <div class="about_book">
+                <div class="about_book-img">
+                    <img class="verybig_img" src="{{ author.image.url }}" alt="">
+                </div>
+                <div class="about_book-text">
+                    <div class="about_book-title">
+                        <h2>{{ author.name }}</h2>
+                        <a href="#!"><i class='bx bx-heart'></i></a>
+                    </div>
+                    <h3>
+                        {% for book in author.book_author.all %}
+                                <a href="{{ book.get_absolute_url }}">{{ book.title }}</a>;
+                            {% endfor %}
+                        {{ author.birthdate }}</h3>
+
+                    <p>{{ author.description }}</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    {% comment %}
+    {% include 'inc/slider.html' %}
+    {% endcomment %}
+
+{% endblock %}
+
+{% block footer %}
+<div class="footerwhite">
+    <div class="container">
+        <a href="index.html"><span>inno</span>Book</a>
+    </div>
+</div>
+{% endblock %}

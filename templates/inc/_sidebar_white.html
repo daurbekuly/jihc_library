@@ -1,0 +1,55 @@
+<div class="navwhite" id="navbar">
+      <nav class="nav__container">
+        <div>
+          <a href="/" class="navwhite__link nav__logo">
+            <i class="bx bx-book-open nav__icon"></i>
+            <span class="navwhite__logo-name">
+              <span class="whitelogo_inno">inno</span>Book
+            </span>
+          </a>
+
+          <div class="nav__list">
+            <div class="nav__items">
+              <h3 class="navwhite__subtitle">Discover</h3>
+
+              <a href="/" class="navwhite__link active">
+                <i class="bx bx-home nav__icon"></i>
+                <span class="navwhite__name">Home</span>
+              </a>
+
+              <a href="#" class="navwhite__link">
+                <i class="bx bx-heart nav__icon"></i>
+                <span class="navwhite__name">For you</span>
+              </a>
+
+            </div>
+
+            <div class="nav__items">
+              <h3 class="navwhite__subtitle">Library</h3>
+
+              <a href="/" class="navwhite__link">
+                <i class="bx bx-book-alt nav__icon"></i>
+                <span class="navwhite__name">All books</span>
+              </a>
+              <a href="#" class="navwhite__link">
+                <i class="bx bx-list-ul nav__icon"></i>
+                <span class="navwhite__name">Top books</span>
+              </a>
+              <a href="{% url 'author_list' %}" class="navwhite__link">
+                <i class="bx bx-user nav__icon"></i>
+                <span class="navwhite__name">Authors</span>
+              </a>
+              <a href="{% url 'add_books' %}" class="navwhite__link">
+                <i class="bx bx-plus-circle nav__icon"></i>
+                <span class="navwhite__name">Add books</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a href="{% url 'logout' %}" class="navwhite__link nav__logout">
+          <i class="bx bx-log-out nav__icon"></i>
+          <span class="navwhite__name">Log Out</span>
+        </a>
+      </nav>
+    </div>

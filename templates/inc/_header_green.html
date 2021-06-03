@@ -1,0 +1,32 @@
+<header class="headergreen">
+      <div class="header__container">
+        <div class="user">
+            {% if request.user.is_authenticated %}
+            <a class="headergreen__user" href="#!">@{{ user }}</a>
+            <span class="headergreen__user"> | </span>
+            <a href="{% url 'logout' %}" class="headergreen__user">Logout</a>
+          {% else %}
+            <a href="{% url 'register' %}" class="headergreen__user">Register</a>
+            <span class="headergreen__user"> | </span>
+            <a href="{% url 'login' %}" class="headergreen__user">Login</a>
+          {% endif %}
+        </div>
+
+
+        <a href="/" class="headergreen__logo"><span>inno</span>Book</a>
+
+        <form action="{% url 'search' %}" method="get" class="headergreen__search">
+          <input
+            type="search"
+            placeholder="Search for books or authors..."
+            class="headergreen__input"
+            name="q"
+          />
+          <i class="bx bx-search header__icon"></i>
+        </form>
+
+        <div class="header__toggle">
+          <i class="bx bx-menu" id="header-toggle"></i>
+        </div>
+      </div>
+    </header>

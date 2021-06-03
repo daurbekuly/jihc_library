@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <title>{% block title %}JIHC Library{% endblock %}</title>
+  </head>
+  {% block body %}<body>{% endblock %}
+    <!--========== HEADER ==========-->
+    {% block header %}
+    {% include 'inc/_header.html' %}
+    {% endblock %}
+
+    <!--========== SIDEBAR ==========-->
+    {% block nav %}
+      {% include 'inc/_sidebar.html' %}
+    {% endblock %}
+
+    <!--========== CONTENTS ==========-->
+
+    {% block content %}
+      Content
+    {% endblock %}
+
+    <!--========== FOOTER ==========-->
+
+    {% block footer %}
+    {% include 'inc/_footer.html' %}
+    {% endblock %}
+
+    <!--========== MAIN JS ==========-->
+
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
+
+  </body>
+</html>

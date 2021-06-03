@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+    <!--========== CONTENTS ==========-->
+
+    {% block content %}
+<section class="newbooks">
+    <div class="container">
+        <div class="top_title">
+            <h3>{{ genre.name }}</h3>
+        </div>
+        <div class="newbooks_items">
+            {% for book in books %}
+            <a href="{{ book.get_absolute_url }}" class="newbook_item">
+            <img class="big_book" src="{{ book.poster.url }}" alt="">
+            <div class="newbook_item-overlay">
+                <h5>{{ book.title }}</h5>
+                <h6>{% for author in book.authors.all %}
+                        {{ author.name }}<br>
+                    {% endfor %}</h6>
+                <div class="newbook_item-rateing">
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star-half'></i>
+                </div>
+                <button>View</button>
+                <button>Download now</button>
+            </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+    {% if page_obj.has_other_pages %}
+        {% include 'inc/pagination.html' %}
+    {% endif %}
+{% endblock %}
+
+
+

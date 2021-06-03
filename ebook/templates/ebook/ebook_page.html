@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block title %}{{ ebook.title }}{% endblock %}
+
+{% block body %}<body class="green">{% endblock %}
+
+{% block header %}
+    {% include 'inc/_header_green.html' %}
+    {% endblock %}
+
+{% block nav %}
+      {% include 'inc/_sidebar_white.html' %}
+{% endblock %}
+
+
+{% block content %}
+    <section class="viewbook">
+        <div class="container">
+            <div class="viewbook_link">
+                <a href="/">New Books</a>
+                <span>/</span>
+                <a href="#">{{ book_item.title }}</a>
+            </div>
+            <div class="about_book">
+                <div class="about_book-img">
+                    <img class="verybig_img" src="{{ book_item.poster.url }}" alt="">
+                </div>
+                <div class="about_book-text">
+                    <div class="about_book-title">
+                        <h2>{{ book_item.title }}</h2>
+                        <a href="#!"><i class='bx bx-heart'></i></a>
+                    </div>
+                    <h3>{% for author in book_item.authors.all %}
+                        <a href="{{ author.get_absolute_url }}">{{ author.name }}</a>,
+                        {% endfor %} {{ book_item.year }}</h3>
+                    <div class="about_book-rateing">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star-half'></i>
+                    </div>
+                    <p>{{ book_item.description }}</p>
+                </div>
+            </div>
+            <div class="viewbook_downloadbtn">
+                {% if book_item.epub %}
+                    <a href="{{ book_item.epub.url }}" download>Download EPUB</a>
+                {% else %}
+                    <a href="#" class="disabled">Download EPUB</a>
+                {% endif %}
+
+                <a href="{{ book_item.pdf.url }}" download>Download PDF</a>
+
+                {% if book_item.mobi %}
+                    <a href="{{ book_item.mobi.url }}" download>Download MOBI</a>
+                {% else %}
+                    <a href="#" class="disabled">Download MOBI</a>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+    {% comment %}
+    {% include 'inc/slider.html' %}
+    {% endcomment %}
+
+{% endblock %}
+
+{% block footer %}
+{% include 'inc/_footer_green.html' %}
+{% endblock %}
+
